@@ -10,6 +10,8 @@ export type ContentType = {
     tags: tags[]
     content: string,
     createdAt: string
+    canShared: boolean
+    shareLink?: string
 }
 
 

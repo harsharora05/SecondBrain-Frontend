@@ -3,16 +3,18 @@ import { LoginModal } from "./login";
 import { AddContentModal } from "./addContentModal";
 import { useloginModalStore, useLoginStore } from "../state/authState";
 import { Route, Routes, Outlet } from "react-router-dom";
-import { YoutubeContent } from "./youtubeContent";
-import { DocumentContent } from "./documentContent";
 import clsx from "clsx";
 import { useContentModalStore, useContentStore } from "../state/contentState";
 import { Button } from "./button";
 import { MainContent } from "./mainContent";
-import { TweetContent } from "./tweetContent";
 import { ButtonIcon } from "../assets/buttonIcon";
 import { LoginIcon } from "../assets/loginIcon";
 import { ContentPage } from "./ContentDisplayPage";
+import { SharePopup } from "./shareModal";
+import { toast, ToastContainer } from "react-toastify";
+import { YoutubeContent } from "./youtubeContent";
+import { TweetContent } from "./tweetContent";
+import { DocumentContent } from "./documentContent";
 
 
 
@@ -40,9 +42,9 @@ const DashBoardLayout = () => {
         localStorage.removeItem("token");
         toggleLogin();
         removeUsername();
+        toast.success("Logged Out");
 
     }
-
 
 
     const isLoginModal = useloginModalStore((state) => state.isLoginModal)
@@ -50,7 +52,6 @@ const DashBoardLayout = () => {
 
     const isContentModal = useContentModalStore((state) => state.isOpen)
     const setContentModal = useContentModalStore((state) => state.setOpen)
-
 
 
 
@@ -74,7 +75,7 @@ const DashBoardLayout = () => {
                     <Button style={"Primary"} text="Add Content" onClick={() => setContentModal()} startIcon={<ButtonIcon />} />
                     <div className="flex flex-col items-center justify-center group">
                         <Button style={"Secondary"} text={username} />
-                        <p className="absolute top-14 bg-gray-200/75 py-2 px-3 rounded-b opacity-0 hover:cursor-pointer group-hover:opacity-100 transition delay-150 duration-300 ease-in-out" onClick={logout}>Logout</p>
+                        <p className="absolute  top-14 bg-gray-200/75 py-2 px-3 rounded-b opacity-0 hover:cursor-pointer group-hover:opacity-100 transition delay-150 duration-300 ease-in-out" onClick={logout}>Logout</p>
                     </div>
                 </div>}
                 {!isLogin && <Button style={"Secondary"} text="Login" onClick={toggleLoginModal} startIcon={<LoginIcon />} />}
@@ -96,7 +97,11 @@ const DashBoardLayout = () => {
 
         <LoginModal isOpen={isLoginModal} setOpen={toggleLoginModal} />
 
+        <SharePopup />
+
         <AddContentModal isOpen={isContentModal} setOpen={() => setContentModal()} />
+
+        <ToastContainer position="bottom-right" autoClose={3000} hideProgressBar={true} />
     </div >
 
 
@@ -114,6 +119,7 @@ const DashBoard = () => {
             <Route path="/documents" element={<DocumentContent />} />
         </Route>
         <Route path="/content/:id" element={<ContentPage />} />
+        <Route path="/content-share/:shareId" element={<ContentPage />} />
     </Routes>
 
 }

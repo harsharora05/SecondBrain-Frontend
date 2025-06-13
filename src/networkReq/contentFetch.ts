@@ -9,7 +9,10 @@ export const loadData = async (url: string): Promise<ContentType[]> => {
         headers: {
             Authorization: localStorage.getItem("token")
         }
+
     });
+
+    console.log(response);
 
     return response.data.content;
 }

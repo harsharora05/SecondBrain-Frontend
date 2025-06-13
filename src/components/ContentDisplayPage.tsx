@@ -4,7 +4,7 @@ import { Tag } from "./tag";
 import { BackIcon } from "../assets/backIcon";
 import { NavLink } from "react-router-dom";
 import { DocumentIcon } from "../assets/documentIcon";
-import type { ReactElement } from "react";
+import { type ReactElement } from "react";
 import { YoutubeIcon } from "../assets/youtubeIcon";
 import { TwitterIcon } from "../assets/twitterIcon";
 import type { tags } from "../Types/contentType";
@@ -18,9 +18,14 @@ const iconMap: Record<string, ReactElement> = {
 
 
 export const ContentPage = () => {
+
+
     const location = useLocation();
     const { content } = location.state || {}
-    const formattedDate = format(new Date(content.createdAt), "yyyy-MM-dd")
+    const formattedDate = format(new Date(content.createdAt), "yyyy-MM-dd");
+
+
+
     return <div className="bg-slate-100 min-h-screen">
         <NavLink to="/"><div className="absolute pt-5 pl-10 hover:cursor-pointer">
             <BackIcon />
