@@ -12,9 +12,6 @@ import { OrbitProgress } from "react-loading-indicators";
 export const SharePopup = () => {
     const toggleShareModal = useShareModal((state) => state.toggleShareModal)
     const isModal = useShareModal((state) => state.isModal)
-
-    const shareable = useShareContentModal((state) => state.shareable)
-    const setShareable = useShareContentModal((state) => state.setShareable)
     const contentId = useShareContentModal((state) => state.contentId)
 
     const updateContent = useContentStore((state) => state.updateContent);
@@ -25,9 +22,8 @@ export const SharePopup = () => {
 
 
     const toggleLinks = async () => {
-        setShareable(!shareable);
 
-        if (!shareable) {
+        if (!contentdata.canShared) {
 
             //enable link
             setLoading(true);
@@ -37,9 +33,12 @@ export const SharePopup = () => {
                 }
             });
 
+            const oldLink = response.data.link;
+            const newlink = `http://localhost:5173/content-share/${oldLink.split("http://localhost:3000/api/v1/content/")[1]}`
+
             updateContent(contentId, {
                 canShared: true,
-                shareLink: response.data.link,
+                shareLink: newlink,
             });
             setLoading(false);
 
@@ -85,14 +84,13 @@ export const SharePopup = () => {
                 </div>
 
 
-                {!!shareable && (<div className="flex justify-center items-center p-4 gap-4">
+                {isLoading ? (<div className="flex justify-center items-center p-4 gap-4"><OrbitProgress size="small" color={"#4236d7"} /></div>) : contentdata.canShared && <div className="flex justify-center items-center p-4 gap-4">
+                    <p className="border border-gray-300 p-2 min-w-100 max-w-full overflow-hidden text-ellipsis whitespace-nowrap ">{contentdata.link}</p>
+                    <span className="hover:cursor-pointer" onClick={() => { navigator.clipboard.writeText(contentdata.link) }}><CopyIcon /></span>
 
-                    {isLoading ? (<OrbitProgress size="small" color={"#4236d7"} />) : (<>
-                        <p className="border border-gray-300 p-2 min-w-100 max-w-full overflow-hidden text-ellipsis whitespace-nowrap ">{contentdata.link}</p>
-                        <span className="hover:cursor-pointer" onClick={() => { navigator.clipboard.writeText(contentdata.link) }}><CopyIcon /></span>
-                    </>
-                    )}
-                </div>)}
+                </div>
+
+                }
 
 
 

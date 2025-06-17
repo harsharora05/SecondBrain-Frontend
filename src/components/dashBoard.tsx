@@ -15,6 +15,7 @@ import { toast, ToastContainer } from "react-toastify";
 import { YoutubeContent } from "./youtubeContent";
 import { TweetContent } from "./tweetContent";
 import { DocumentContent } from "./documentContent";
+import { SharedContentPage } from "./shareContentDisplay";
 
 
 
@@ -119,7 +120,7 @@ const DashBoard = () => {
             <Route path="/documents" element={<DocumentContent />} />
         </Route>
         <Route path="/content/:id" element={<ContentPage />} />
-        <Route path="/content-share/:shareId" element={<ContentPage />} />
+        <Route path="/content-share/:shareId" element={<SharedContentPage />} />
     </Routes>
 
 }

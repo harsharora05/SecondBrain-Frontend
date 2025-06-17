@@ -19,17 +19,18 @@ const iconMap: Record<string, ReactElement> = {
 
 export const ContentPage = () => {
 
-
     const location = useLocation();
     const { content } = location.state || {}
+
+
     const formattedDate = format(new Date(content.createdAt), "yyyy-MM-dd");
 
 
 
     return <div className="bg-slate-100 min-h-screen">
-        <NavLink to="/"><div className="absolute pt-5 pl-10 hover:cursor-pointer">
+        {<NavLink to="/"><div className="absolute pt-5 pl-10 hover:cursor-pointer">
             <BackIcon />
-        </div></NavLink>
+        </div></NavLink>}
 
         <div className=" flex items-center flex-col pt-20 px-10 pb-10">
             <p className="flex items-center font-bold font-mono text-2xl w-238">

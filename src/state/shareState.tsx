@@ -15,16 +15,14 @@ export const useShareModal = create<shareModal>()((set) => ({
 
 interface shareContentModal {
     contentId: string
-    shareable: boolean
-    setShareable: (isShare: boolean) => void
     setId: (id: string) => void
 
 }
 
 export const useShareContentModal = create<shareContentModal>()((set) => ({
     contentId: "",
-    shareable: false,
     setId: (id: string) => { set(() => ({ contentId: id })) },
-    setShareable: (isShare: boolean) => { set(() => ({ shareable: isShare })) },
 }))
+
+
 

@@ -12,10 +12,10 @@ export const loadData = async (url: string): Promise<ContentType[]> => {
 
     });
 
-    console.log(response);
-
     return response.data.content;
 }
+
+
 
 
 
