@@ -117,7 +117,7 @@ export const LoginModal = (props: LoginModalType) => {
 
         {props.isOpen && <div className="h-screen w-screen fixed top-0 left-0 bg-black/50 flex justify-center items-center ">
 
-            <div className="bg-white  w-100 flex flex-col p-8 gap-2 rounded-md">
+            <div className="bg-white  w-68 custmd:w-100 ml-13 custmd:ml-0 flex flex-col p-2 custmd:p-8 gap-2 rounded-md">
                 <div className="cursor-pointer flex justify-end pb-4" onClick={() => {
                     props.setOpen();
                     reset({

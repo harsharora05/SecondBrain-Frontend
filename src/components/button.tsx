@@ -17,11 +17,11 @@ const defaultStyles = {
 
 
 export const Button = (props: buttonProps) => {
-    return <button className={clsx(defaultStyles[props.style], 'py-2 px-4 rounded-md font-light cursor-pointer')} onClick={props.onClick} >
+    return <button className={clsx(defaultStyles[props.style], 'py-2 px-2 sm:py-2 sm:px-4 rounded-md font-light cursor-pointer')} onClick={props.onClick} >
         <div className="flex items-center">
             <div className="pr-1">
                 {props.startIcon}
             </div>
-            {props.text}
+            <p className="text-xs sm:text-base">{props.text}</p>
         </div> </button>
 }

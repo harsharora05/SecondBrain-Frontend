@@ -65,10 +65,10 @@ const DashBoardLayout = () => {
 
         <SideBar />
 
-        <div className={clsx("px-8 py-4 ml-72 flex flex-col bg-gray-100", contents.length > 6 ? "h-full" : "h-screen")}>
+        <div className={clsx("px-8 py-4 xl:ml-72 ml-10 flex flex-col bg-gray-100 ", contents.length > 6 ? "h-full " : "min-h-screen")}>
             <div className="flex justify-between items-center gap-2">
                 <div>
-                    <h1 className="text-2xl font-bold font-serif">
+                    <h1 className="text-lg sm:text-2xl font-bold font-serif">
                         All Notes
                     </h1>
                 </div>
@@ -76,7 +76,7 @@ const DashBoardLayout = () => {
                     <Button style={"Primary"} text="Add Content" onClick={() => setContentModal()} startIcon={<ButtonIcon />} />
                     <div className="flex flex-col items-center justify-center group">
                         <Button style={"Secondary"} text={username} />
-                        <p className="absolute  top-14 bg-gray-200/75 py-2 px-3 rounded-b opacity-0 hover:cursor-pointer group-hover:opacity-100 transition delay-150 duration-300 ease-in-out" onClick={logout}>Logout</p>
+                        <p className="absolute z-10 top-12 sm:top-14 text-xs  sm:text-base  bg-gray-200/75 py-1 px-2 sm:py-2 sm:px-3 rounded-b opacity-0 hover:cursor-pointer group-hover:opacity-100 transition delay-150 duration-300 ease-in-out" onClick={logout}>Logout</p>
                     </div>
                 </div>}
                 {!isLogin && <Button style={"Secondary"} text="Login" onClick={toggleLoginModal} startIcon={<LoginIcon />} />}

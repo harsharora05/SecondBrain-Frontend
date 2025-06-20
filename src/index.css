@@ -4,4 +4,7 @@
     --color-purple-300: #dfe6ff;
     --color-purple-600: #4236d7;
     --color-purple-700: #3d37a6;
+    --breakpoint-md: 910px;
+    --breakpoint-custmd: 700px;
+    --breakpoint-xs: 300px;
 }

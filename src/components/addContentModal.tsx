@@ -106,9 +106,9 @@ export const AddContentModal = (props: AddContentModalType) => {
 
 
     return <div>
-        {props.isOpen && <div className="h-screen w-screen  bg-black/50  fixed left-0 top-0 flex justify-center items-center overflow-y-scroll">
+        {props.isOpen && <div className="h-screen w-screen  bg-black/50 fixed left-0 top-0 flex justify-center items-center overflow-y-scroll">
 
-            <div className="w-155  bg-white flex flex-col gap-3 px-6 py-4 rounded-md">
+            <div className="w-70 ml-12 custmd:ml-0 custmd:w-155 mt-30 pb-8 custmd:mt-0 custmd:pb-0 bg-white flex flex-col gap-3 px-6 py-4 rounded-md">
                 <div className="cursor-pointer flex justify-end" onClick={() => {
                     props.setOpen();
                     reset({

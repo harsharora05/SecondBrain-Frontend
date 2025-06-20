@@ -63,8 +63,8 @@ export const Card = (props: ContentType) => {
     const setId = useShareContentModal((state) => state.setId);
 
 
-    return <div className="border border-gray-200 h-85 w-70 rounded-lg relative bg-white hover:cursor-pointer">
-        <div className="flex items-center justify-between py-2 text-base px-3">
+    return <div className="border border-gray-200 lg:h-85 lg:w-70  md:w-62 md:h-78 custmd:h-85 custmd:w-70 h-85 w-70  rounded-lg relative bg-white hover:cursor-pointer">
+        <div className="flex items-center justify-between py-2 px-3  text-base lg:px-3 md:px-2 custmd:px-3">
 
             <NavLink to={`/content/${props._id}`} state={{ "content": data }}>
                 <div className="flex items-center gap-2">
@@ -82,7 +82,7 @@ export const Card = (props: ContentType) => {
         </div>
 
         <NavLink to={`/content/${props._id}`} state={{ "content": data }}>
-            <div className="flex justify-center px-4 py-5 h-65 break-words overflow-hidden" >
+            <div className="flex justify-center px-4 py-5 h-66 lg:h-65 custmd:h-65 md:h-60 break-words overflow-hidden" >
                 {trunContent}
             </div>
 

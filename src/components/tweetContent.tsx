@@ -41,14 +41,14 @@ export const TweetContent = () => {
 
     return isLoading ? <> <div className="h-screen flex justify-center items-center"> <Commet size="medium" color={"#4236d7"} /> </div>
     </> : <>
-        {contents.length > 0 ? <div className="grid grid-cols-3 gap-x-2 gap-y-10 p-4">
-            {contents.map((cntent) =>
-                <Card key={cntent._id} _id={cntent._id} createdAt={cntent.createdAt} content={cntent.content} title={cntent.title} type={cntent.type} tags={cntent.tags} shareLink={cntent.shareLink} canShared={cntent.canShared} />
-            )}
-
-        </div> : <div className=" flex items-center justify-center h-screen">
-            {isLogin ? <h1>No Content Found</h1> : <h1>Please Login To add content</h1>}
-        </div>
+        {
+            contents.length > 0 ? <div className="grid md:grid-cols-3 2xl:grid-cols-4  mx-auto  custmd:grid-cols-2 grid-cols-1 gap-x-18 gap-y-10 py-10 sm:px-4 sm:py-4">
+                {contents.map((cntent) =>
+                    <Card key={cntent._id} _id={cntent._id} createdAt={cntent.createdAt} content={cntent.content} title={cntent.title} type={cntent.type} tags={cntent.tags} canShared={cntent.canShared} shareLink={cntent.shareLink} />
+                )}
+            </div > : <div className="h-screen flex items-center justify-center">
+                {isLogin ? <h1>No Content Found</h1> : <h1>Please Login To add content</h1>}
+            </div>
         }
 
 

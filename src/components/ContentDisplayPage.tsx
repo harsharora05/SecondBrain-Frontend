@@ -17,40 +17,47 @@ const iconMap: Record<string, ReactElement> = {
 };
 
 
+
 export const ContentPage = () => {
-
     const location = useLocation();
-    const { content } = location.state || {}
-
+    const { content } = location.state || {};
 
     const formattedDate = format(new Date(content.createdAt), "yyyy-MM-dd");
 
+    return (
+        <div className="bg-slate-100 min-h-screen px-2 custmd:px-4 pb-10">
+            <NavLink to="/">
+                <div className="pt-3 custmd:pt-5 pl-2 custmd:pl-4 hover:cursor-pointer">
+                    <BackIcon />
+                </div>
+            </NavLink>
+
+            <div className="flex flex-col items-start px-2 pt-16 max-w-4xl mx-auto">
+
+                <p className="flex items-center font-bold font-mono text-lg sm:text-2xl w-full">
+                    {content.title}
+                    <span className="ml-2">{iconMap[content.type]}</span>
+                </p>
 
 
-    return <div className="bg-slate-100 min-h-screen">
-        {<NavLink to="/"><div className="absolute pt-5 pl-10 hover:cursor-pointer">
-            <BackIcon />
-        </div></NavLink>}
+                <p className="text-gray-500 text-sm sm:text-base mt-1">{formattedDate}</p>
 
-        <div className=" flex items-center flex-col pt-20 px-10 pb-10">
-            <p className="flex items-center font-bold font-mono text-2xl w-238">
-                {content.title}
-                <span className="ml-2">{iconMap[content.type]}</span>
-            </p>
-            <p className="w-238 text-gray-500">{formattedDate}</p>
 
-            <div className="flex gap-3 w-238 mt-5">
-                {content.tags.map((tag: tags) => <Tag key={tag._id} id={tag._id} content={tag.tag} isClose={false} />)}
+                <div className="flex flex-wrap gap-2 mt-4 w-full">
+                    {content.tags.map((tag: tags) => (
+                        <Tag key={tag._id} id={tag._id} content={tag.tag} isClose={false} />
+                    ))}
+                </div>
             </div>
 
-        </div >
-
-        <div className="w-screen flex justify-center">
-            <div className="w-250 p-5">
-                <div dangerouslySetInnerHTML={{ __html: content.content }}>
+            <div className="flex justify-center mt-8">
+                <div className="w-full max-w-4xl px-2 sm:px-4 md:px-6">
+                    <div
+                        className="prose prose-sm sm:prose-base lg:prose-lg max-w-none"
+                        dangerouslySetInnerHTML={{ __html: content.content }}
+                    />
                 </div>
             </div>
         </div>
-
-    </div >
-}
+    );
+};

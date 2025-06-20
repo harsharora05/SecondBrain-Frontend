@@ -67,7 +67,7 @@ export const SharePopup = () => {
 
         {!!isModal && < div className="h-screen w-screen fixed top-0 left-0 bg-black/50 flex justify-center items-center ">
 
-            <div className="bg-white h-60  w-130 flex flex-col p-8 gap-2 rounded-md">
+            <div className="bg-white h-60  w-70 ml-15 custmd:w-130  flex flex-col p-4 custmd:p-8 gap-2 rounded-md">
                 <div className="cursor-pointer flex justify-end pb-4" onClick={() => { toggleShareModal() }}>
                     <CloseIcon size={"size-6"} />
                 </div>
@@ -85,7 +85,7 @@ export const SharePopup = () => {
 
 
                 {isLoading ? (<div className="flex justify-center items-center p-4 gap-4"><OrbitProgress size="small" color={"#4236d7"} /></div>) : contentdata.canShared && <div className="flex justify-center items-center p-4 gap-4">
-                    <p className="border border-gray-300 p-2 min-w-100 max-w-full overflow-hidden text-ellipsis whitespace-nowrap ">{contentdata.link}</p>
+                    <p className="border border-gray-300 p-2 min-w-50 custmd:min-w-100 max-w-full overflow-hidden text-ellipsis whitespace-nowrap ">{contentdata.link}</p>
                     <span className="hover:cursor-pointer" onClick={() => { navigator.clipboard.writeText(contentdata.link) }}><CopyIcon /></span>
 
                 </div>
