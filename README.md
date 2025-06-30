@@ -44,6 +44,8 @@ Second Brain is a powerful content organization tool that helps you store, tag, 
 
 <img width="1440" alt="Screenshot 2025-06-30 at 2 00 50 PM" src="https://github.com/user-attachments/assets/07a335b5-1deb-44c9-8008-69c0b527e959" />
 
+<img width="1440" alt="Screenshot 2025-06-30 at 2 02 46 PM" src="https://github.com/user-attachments/assets/b0d42c6f-f6bd-45dd-8653-21ee663d553b" />
+
 **Home Page**
 
 <img width="1440" alt="Screenshot 2025-06-30 at 2 02 52 PM" src="https://github.com/user-attachments/assets/30f97617-472b-4750-b87d-abe2eb8625a1" />
@@ -52,7 +54,6 @@ Second Brain is a powerful content organization tool that helps you store, tag, 
 
 <img width="1440" alt="Screenshot 2025-06-30 at 2 02 56 PM" src="https://github.com/user-attachments/assets/6bf88277-4093-4b83-b7fe-a61c2d5ea473" />
 
-<img width="1440" alt="Screenshot 2025-06-30 at 2 02 46 PM" src="https://github.com/user-attachments/assets/b0d42c6f-f6bd-45dd-8653-21ee663d553b" />
 
 **Enable Share Modal**
 
