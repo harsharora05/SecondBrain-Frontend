@@ -16,7 +16,7 @@ Second Brain is a powerful content organization tool that helps you store, tag, 
   Assign multiple tags to each piece of content to organize.
 
 - 📄 **Embed Documents**  
-  Upload or link documents (PDFs, Word files, etc.) that can be viewed directly inside the app.
+  Embed documents (PDFs, Word files, etc.) that can be viewed directly inside the app.
 
 - 🎬 **Embed YouTube Videos**  
   Add YouTube links and view them inline with your other content — no switching tabs.
